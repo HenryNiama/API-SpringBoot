@@ -23,16 +23,16 @@ public class AuthorService {
 
     //Retornar todos los autores
     public List<AuthorDTO> getAllAuthors(){
-        return new ArrayList<>();
+        return fabricAuthorService.createAuthorDTOList(authorRepository.findAll());
     }
 
     //Retornar un autor por id
     public AuthorDTO getAuthorById(Integer id){
-        return new AuthorDTO();
+        return fabricAuthorService.createAuthorDTO(authorRepository.findById(id).get());
     }
 
     //Eliminar un autor por id
     public void deleteAuthorById(Integer id){
-
+        authorRepository.deleteById(id);
     }
 }
