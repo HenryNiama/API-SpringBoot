@@ -1,5 +1,6 @@
 package com.ecodeup.biblioteca.model;
 
+import com.ecodeup.biblioteca.dto.AuthorDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,4 +17,10 @@ public class Author {
     private String lastNames;
     private String cellphone;
 
+    public Author(AuthorDTO authorDTO) {
+        this.id = authorDTO.getId();
+        this.names = authorDTO.getNames();
+        this.lastNames = authorDTO.getLastNames();
+        this.cellphone = authorDTO.getCellphone();
+    }
 }
