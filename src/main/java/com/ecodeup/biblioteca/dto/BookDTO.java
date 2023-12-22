@@ -22,6 +22,8 @@ public class BookDTO {
     private LocalDate editionDate;
     private AuthorDTO authorDTO;
 
+    private Integer authorId;
+
     public BookDTO(Book book) {
         this.id = book.getId();
         this.ISBN = book.getISBN();
