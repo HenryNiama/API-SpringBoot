@@ -33,7 +33,7 @@ public class BookDTO {
         this.pages = book.getPages();
         this.price = book.getPrice();
         this.editionDate = book.getEditionDate();
-        this.authorDTO = new AuthorDTO(book.getAuthor());
+        //this.authorDTO = new AuthorDTO(book.getAuthor());
     }
 
 
