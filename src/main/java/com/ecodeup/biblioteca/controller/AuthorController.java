@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@RequestMapping("/api/v1/biblioteca")
+@RequestMapping("/api/v1/library/authors")
 public class AuthorController {
 
     @Autowired

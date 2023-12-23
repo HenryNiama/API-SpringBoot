@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/biblioteca/books")
+@RequestMapping("/api/v1/library/books")
 public class BookController {
 
     @Autowired
@@ -27,11 +27,31 @@ public class BookController {
 
     }
 
-
     @GetMapping
     public ResponseEntity<List<BookDTO>> getAll(){
         try {
             return new ResponseEntity<>(bookService.getAllBooks(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<BookDTO> getById(@PathVariable("id") Integer id){
+        try {
+            return new ResponseEntity<>(bookService.getBookById(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteById(@PathVariable("id") Integer id){
+        try {
+            bookService.deleteBookById(id);
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
